@@ -1,0 +1,19 @@
+.timer-circle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 250px;
+    height: 250px;
+    background-color: #FFF;
+
+    border-radius: 99999px;
+
+    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.35);
+
+    .timer-time{
+        font-size: 4rem;
+        font-weight: 700;
+        color: #066F68;
+    }
+}
