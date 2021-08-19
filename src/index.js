@@ -6,8 +6,8 @@ import Teste from './public/pages/teste/index';
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <HomePage /> */}
-    <Teste/>
+    <HomePage />
+    {/* <Teste/> */}
   </React.StrictMode>,
   document.getElementById('root')
 );
