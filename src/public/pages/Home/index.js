@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Timer from '../../components/timer';
 import SimpleButton from '../../components/simpleButton';
 import SimpleCircle from '../../components/simpleCircle';
-
+// eslint-disable-next-line react-hooks/exhaustive-deps
 export default function HomePage() {
 
   const [loadAnimation, setLoadAnimation] = useState(false);

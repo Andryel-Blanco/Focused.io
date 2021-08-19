@@ -7,7 +7,7 @@ import { FiBell, FiBellOff } from "react-icons/fi";
 export default function SimpleCircle(props){
     return(
         <div className='circle' onClick={props.onClick}>
-            {props.type == 'icon' ?
+            {props.type === 'icon' ?
                 <>{props.changeIcon ? 
                     <FiBell
                         size={40}
