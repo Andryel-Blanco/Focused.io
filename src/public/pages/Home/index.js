@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 
+
+// import NotificationSound from '../../assets/music/Notification.mp3';
+import NotificationSoundTwo from '../../assets/music/Notification.wav';
+
 import Logo from '../../assets/images/Logo.svg';
-import NotificationSound from '../../assets/music/Notification.mp3';
 import './Styles.scss';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -80,7 +83,7 @@ export default function HomePage() {
     }
   }, [soundNotification])
 
-  function spawnNotification(title, body) {
+  function spawnNotification(title, body) { 
     const notification = new Notification(title, {
       body: body,
       silent: true,
@@ -119,8 +122,8 @@ export default function HomePage() {
       }
       else{
         shortBreak();
-        setMinutes(0);
-        setSeconds(10);
+        setMinutes(5);
+        setSeconds(0);
         setBreakCounter(breakCounter + 1);
       }
     }, 1000);
@@ -128,14 +131,14 @@ export default function HomePage() {
 
   function handleAlarm(){
     if(soundNotification){
-      var Notification = new Audio(NotificationSound);
+      var Notification = new Audio(NotificationSoundTwo);
       Notification.play();
     }
   }
 
   return (
     <div className="container-page">
-      <ToastContainer />
+      <ToastContainer className='desktop-only' />
       <div className={loadAnimation ? 'display-none' : 'logo-animation'}>
         <img src={Logo} className='tilt-in-fwd-tr' alt='Logotipo do website'/>
       </div>
@@ -144,7 +147,12 @@ export default function HomePage() {
         {/* <div className='help-icon no-select'><span id='icon'>i</span></div> */}
       </header>
       <div className={loadAnimation ? 'loaded' : 'display-none'}>
-        <div className='timer-content'>
+        <div className='timer-content-mobile'>
+          <Timer minutes={minutes} seconds={seconds}/>
+          <SimpleButton buttonText={start} color={'#58AFFF'} onClick={()=>{setStart(!start)}} textButton={false} />
+          <SimpleButton buttonText={breakCounter} color={'#58FF69'} textButton={true} onClick={()=>{handleShortBreak()}} />
+        </div>
+        <div className='timer-content-desktop'>
           <SimpleButton buttonText={start} color={'#58AFFF'} onClick={()=>{setStart(!start)}} textButton={false} />
           <Timer minutes={minutes} seconds={seconds}/>
           <SimpleButton buttonText={breakCounter} color={'#58FF69'} textButton={true} onClick={()=>{handleShortBreak()}} />
